@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './components/card';
+import Navbar from './components/navbar';
+import {posts} from './data'
+import { io } from "socket.io-client";
 
 function App() {
+  const [username,setUsername] = useState("")
+  const [user,setUser] = useState("")
+  const [socket,setSocket] =useState(null) 
+  useEffect(()=>{
+
+    setSocket(io("http://localhost:4000"));
+  
+  },[]);
+
+  useEffect(()=>{
+    socket?.emit("newUser", user)
+  },[socket,user])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className='container'>
+  {user ? (
+    <>
+     <Navbar socket={socket}/>
+    {posts.map((post)=>(
+      <Card key={post.id} post={post} socket={socket} user={user}/>
+    ))}
+    <span className='username'>{user}</span>
+    </>
+  ) : (
+  <div className='login'>
+    <input type='text' placeholder='username' onChange={(e)=>setUsername(e.target.value)}/>
+    <button onClick={()=>setUser(username)}>Login</button>
+  </div>
+  )}
+</div>
   );
 }
 
