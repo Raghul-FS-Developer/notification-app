@@ -2,7 +2,7 @@ const { Server } = require("socket.io");
 
 const io = new Server({
   cors: {
-    origin: "https://notification-app.vercel.app",
+    origin: "*",
   },
 });
 
