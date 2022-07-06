@@ -11,7 +11,7 @@ function App() {
   const [socket,setSocket] =useState(null) 
   useEffect(()=>{
 
-    setSocket(io("http://localhost:4000"));
+    setSocket(io("https://not-back.herokuapp.com"));
   
   },[]);
 
