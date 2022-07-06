@@ -38,7 +38,7 @@ function Card({ post, socket, user }) {
         )}
         <BiCommentDetail className='cardIcon' onClick={()=>notification(2)}/>
         <AiOutlineShareAlt className='cardIcon' onClick={()=>notification(3)}/>
-        <GrCircleInformation className='cardIcon infoIcon'/>
+        {/* <GrCircleInformation className='cardIcon infoIcon'/> */}
       </div>
     </div>
   )

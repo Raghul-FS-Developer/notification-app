@@ -4,7 +4,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { RiMessage2Fill } from "react-icons/ri";
 import { AiFillSetting } from "react-icons/ai";
 
-function Navbar({ socket }) {
+function Navbar({ socket,user }) {
     const [notifications, setNotifications] = useState([]);
     const [open, setOpen] = useState(false);
   
@@ -15,7 +15,7 @@ function Navbar({ socket }) {
     }, [socket]);
     
 
-console.log(notifications)
+
 
 
     const displayNotification = ({ senderName, type }) => {
@@ -29,7 +29,10 @@ console.log(notifications)
         action = "shared";
       }
       return (
-        <span className="notification">{`${senderName} ${action} your post.`}</span>
+        
+        <span className="notification">{action === 'commented' ?`${senderName} ${action} on your post.`:`${senderName} ${action} your post.`}</span>
+       
+      
       );
     };
   
@@ -41,6 +44,8 @@ console.log(notifications)
     return (
       <div className="navbar">
         <span className="logo">Socket App</span>
+        
+        <span className='username'>{user}</span>
         <div className="icons">
           <div className="icon" onClick={() => setOpen(!open)}>
             <IoMdNotifications className="iconImg"  />
@@ -49,21 +54,24 @@ console.log(notifications)
               <div className="counter">{notifications.length}</div>
             }
           </div>
+          
           <div className="icon">
             <  RiMessage2Fill className="iconImg" />
           </div>
           <div className="icon" >
             < AiFillSetting  className="iconImg"  />
-          </div>
+           </div>
         </div>
+        
         {open && (
-          <div className="notifications">
+          <div className="notifications" style={{right:notifications.length >0?'30px':"80px"}}>
             {notifications.map((n) => displayNotification(n))}
             <button className="nButton" onClick={handleRead}>
               Mark as read
             </button>
           </div>
         )}
+ 
       </div>
     );
   };

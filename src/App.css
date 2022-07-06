@@ -7,45 +7,49 @@ body {
 }
 
 .container {
-  height: 100vh;
-  /* margin-top: 10px; */
-  /* width: 50vh; */
-
-  
+  height: 100vh ;  
 }
 
 .login {
+
   height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-input {
-  width: 50%;
-  padding: 10px;
-  margin-bottom: 20px;
+.head{
+  padding-top: 80px;
+  font-size: 100px;
+  color: #777;
 }
 
-button {
-  width: 60%;
+input {
+  margin-top: 20px;
+  width: 50%;
   padding: 10px;
-  background-color: teal;
+  /* border: none; */
+  border: 2px solid #777;
+  margin-bottom: 20px;
+}
+input:focus{
+  outline-style: none;
+
+}
+button {
+  width: 70%;
+  padding: 10px;
+  background-color: #777;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-
-.username {
-  font-weight: bold;
-  color: teal;
-  position: absolute;
-  top: 15px;
-  right: 20px;
+.cardmain{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-
 h2{
   margin-bottom: 30px;
   background-color: teal;

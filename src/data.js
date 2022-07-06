@@ -33,7 +33,12 @@ export const posts = [
 
       userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo29lwNisTvCtt0p0rhkOhLtojA9PmRgg6kg8nqmXKd7Les8VE4C0HgtG-CNO_DxJXOy8&usqp=CAU",
       postImg: "https://images.hindustantimes.com/auto/img/2021/06/20/600x338/E4SLtKlVEAEV7za_1624177932925_1624177980581.jpg",
-    },
+    },{
+      id: 5,
+      username:"Sarath",
+      userImg: "https://i.pinimg.com/originals/e9/9d/75/e99d7587619137bc41ba86eba2a29de1.jpg",
+      postImg: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Huracan-EVO/7195/1645612088168/front-left-side-47.jpg?tr=w-375",
+    }
     
 
   ];

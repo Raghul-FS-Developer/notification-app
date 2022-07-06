@@ -23,17 +23,21 @@ function App() {
   <div className='container'>
   {user ? (
     <>
-     <Navbar socket={socket}/>
+     <Navbar socket={socket} user={user}/>
+     <div className='cardmain'>
     {posts.map((post)=>(
       <Card key={post.id} post={post} socket={socket} user={user}/>
     ))}
-    <span className='username'>{user}</span>
+    </div>
     </>
   ) : (
+    <>
+  <h1 className='head'>Socket App</h1>
   <div className='login'>
-    <input type='text' placeholder='username' onChange={(e)=>setUsername(e.target.value)}/>
+    <input  type='text' placeholder='username' onChange={(e)=>setUsername(e.target.value)}/>
     <button onClick={()=>setUser(username)}>Login</button>
   </div>
+  </>
   )}
 </div>
   );
