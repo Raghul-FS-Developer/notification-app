@@ -11,9 +11,10 @@ function App() {
   const [socket,setSocket] =useState(null) 
   useEffect(()=>{
 
-    setSocket(io("https://not-back.herokuapp.com"));
+    setSocket(io("https://https-notification-app-render-app.onrender.com"));
   
   },[]);
+
 
   useEffect(()=>{
     socket?.emit("newUser", user)
